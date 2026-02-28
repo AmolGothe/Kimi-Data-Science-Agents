@@ -1,0 +1,16 @@
+version: 1
+agent:
+  name: mlops
+  model: kimi-for-coding
+  thinking_mode: enabled
+  temperature: 0.1
+  system_prompt_path: ./prompts/mlops.md
+
+  tools:
+    - "kimi_cli.tools.file:ReadFile"
+    - "kimi_cli.tools.file:WriteFile"
+    - "kimi_cli.tools.file:Glob"
+    - "kimi_cli.tools.file:Grep"
+    - "kimi_cli.tools.file:StrReplaceFile"
+    - "kimi_cli.tools.shell:Shell"
+    - "kimi_cli.tools.ask_user:AskUserQuestion"

@@ -1,0 +1,42 @@
+version: 1
+agent:
+  name: global-root
+  model: kimi-for-coding
+  thinking_mode: enabled
+  temperature: 0.3
+  system_prompt_path: ./prompts/root.md
+
+  tools:
+    - "kimi_cli.tools.multiagent:Task"
+    - "kimi_cli.tools.multiagent:CreateSubagent"
+    - "kimi_cli.tools.web:SearchWeb"
+    - "kimi_cli.tools.web:FetchURL"
+    - "kimi_cli.tools.shell:Shell"
+    - "kimi_cli.tools.file:ReadFile"
+    - "kimi_cli.tools.file:WriteFile"
+    - "kimi_cli.tools.file:Glob"
+    - "kimi_cli.tools.file:Grep"
+    - "kimi_cli.tools.file:StrReplaceFile"
+    - "kimi_cli.tools.ask_user:AskUserQuestion"
+    - "kimi_cli.tools.todo:SetTodoList"
+
+  subagents:
+    analyst:
+      path: ./analyst.yaml
+      description: "Senior Data Analyst and Feature Engineer — cleans raw data and performs EDA"
+
+    modeler:
+      path: ./modeler.yaml
+      description: "Principal ML Scientist — trains and tunes predictive models"
+
+    evaluator:
+      path: ./evaluator.yaml
+      description: "ML Evaluation Expert — validates models and acts as the quality gate"
+
+    reporter:
+      path: ./reporter.yaml
+      description: "Data Storyteller — produces visualizations and final reports"
+
+    mlops:
+      path: ./mlops.yaml
+      description: "MLOps Engineer — wraps the approved model in a production-ready FastAPI app"

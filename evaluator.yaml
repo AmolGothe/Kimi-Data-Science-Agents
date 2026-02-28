@@ -1,0 +1,15 @@
+version: 1
+agent:
+  name: evaluator
+  model: kimi-for-coding
+  thinking_mode: enabled
+  temperature: 0.1
+  system_prompt_path: ./prompts/evaluator.md
+
+  tools:
+    - "kimi_cli.tools.file:ReadFile"
+    - "kimi_cli.tools.file:WriteFile"
+    - "kimi_cli.tools.file:Glob"
+    - "kimi_cli.tools.file:Grep"
+    - "kimi_cli.tools.shell:Shell"
+    - "kimi_cli.tools.ask_user:AskUserQuestion"
