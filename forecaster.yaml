@@ -1,10 +1,10 @@
 version: 1
 agent:
-  name: mlops
+  name: forecaster
   model: kimi-for-coding
   thinking_mode: enabled
   temperature: 0.1
-  system_prompt_path: ./prompts/mlops.md
+  system_prompt_path: ./prompts/forecaster.md
 
   tools:
     - "kimi_cli.tools.file:ReadFile"

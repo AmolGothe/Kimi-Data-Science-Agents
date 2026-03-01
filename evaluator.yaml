@@ -13,3 +13,10 @@ agent:
     - "kimi_cli.tools.file:Grep"
     - "kimi_cli.tools.shell:Shell"
     - "kimi_cli.tools.ask_user:AskUserQuestion"
+
+  mcp_servers:
+    - name: ds_sandbox
+      transport: stdio
+      command: python
+      args:
+        - ~/.ds-agents/mcp_server/server.py

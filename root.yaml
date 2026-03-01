@@ -20,6 +20,13 @@ agent:
     - "kimi_cli.tools.ask_user:AskUserQuestion"
     - "kimi_cli.tools.todo:SetTodoList"
 
+  mcp_servers:
+    - name: ds_sandbox
+      transport: stdio
+      command: python
+      args:
+        - ~/.ds-agents/mcp_server/server.py
+
   subagents:
     analyst:
       path: ./analyst.yaml
@@ -32,6 +39,10 @@ agent:
     evaluator:
       path: ./evaluator.yaml
       description: "ML Evaluation Expert — validates models and acts as the quality gate"
+
+    forecaster:
+      path: ./forecaster.yaml
+      description: "Time Series Forecasting Expert — builds ARIMA, Prophet, and ML-based forecasting models for temporal data"
 
     reporter:
       path: ./reporter.yaml
